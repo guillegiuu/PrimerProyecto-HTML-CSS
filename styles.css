@@ -1,0 +1,347 @@
+/*Paleta Generales de Colores, utilizando pseudo-elementos ":root"*/
+:root {
+  /*Colores*/
+  --blanco: #ffffff;
+  --gris: #b3b3b3;
+  --grisClaro: #dfe9f3;
+  --negro: #000000;
+  --primario: #414758;
+  --secundario: #474158;
+}
+
+/*Para trabajar con la medida "rem" es recomendable utilizar las medidas en html y body*/
+
+/* ========== Ajustes Generales ========== */
+/*Modelo de Caja (Box-Sizing Hack), Ajustes*/
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; /*Box Sizing Hack*/
+  /*Añadiendo Scroll*/
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-size: 16px; /*1rem = 16px*/
+  font-family: 'Roboto', sans-serif;
+  /*Degradado (Gradient) en CSS*/
+  background-image:linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1,h2,h3{
+  text-align: center;
+}
+
+/*Sombras CSS*/
+.sombra {
+  -webkit-box-shadow: 11px 12px 14px -7px rgba(0,0,0,0.41);
+  -moz-box-shadow: 11px 12px 14px -7px rgba(0,0,0,0.41);
+  box-shadow: 11px 12px 14px -7px rgba(0,0,0,0.41);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+
+/* ========== Selector Clase General ========== */
+.titulo {
+  color: var(--primario);
+}
+
+.contenedor { 
+  max-width: 120rem; /*120rem = 1920px*/
+  margin: 0 auto; /*Centrar Horizontalmente*/
+}
+
+/*Utilidades*/
+.nav-background { /*El div hace extender el color de fondo en todo el espacio disponible*/
+  background-color: var(--secundario);
+}
+
+.navegacion-principal {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/*Media Queries Navegacion Principal*/
+/*Talbet a > tamaño */
+@media (min-width: 768px) {
+  .navegacion-principal{
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+}
+
+/*Position Absolute*/
+.hero {
+  /*Propiedades Imagenes */
+  background-image: url(img/02-imagen.PNG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  position: relative; /*Padre relative*/
+  margin-bottom: 2rem;
+}
+
+/*Position Absolute*/
+.contenido-hero {
+  position: absolute; /*Hijo aboslute*/
+  background-color: rgb( 0 0 0 / 70% );
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+
+/*Scroll*/
+.servicios,
+.navegacion-principal,
+.formulario{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+
+/*Media  Queries Grid*/
+@media (min-width: 768px) {
+/*Display Grid: */
+  .servicios {
+    display: grid;
+    /*Crear y Acomodar 3 Columnas iguales GRID*/
+    grid-template-columns: repeat(3, 1fr);
+    /*Separar Contenido (Margin)*/
+    column-gap: 1rem;
+  }
+}
+
+/*Creando Botones*/
+.boton {
+  background-color: var(--secundario);
+  color: var(--blanco);
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold; /*Sombra en texto*/
+  border-radius: .5rem; /*Redondear boton*/
+  width: 90%;
+  text-align: center;
+  border: none;
+}
+/*Media Queries Boton*/
+@media (min-width: 480px) {
+  .boton{
+    /*Se resetea con el Width cuando se modifica*/
+    width: auto;
+  }
+}
+
+
+
+/*Utilidades*/
+.w-100 {
+  width: 100%;
+}
+/*Media Queries Boton Enviar Formulario*/
+@media (min-width: 768px) {
+  .w-100{
+    width: auto;
+  }
+}
+.flex {
+  display: flex;
+}
+.aliniear-derecha {
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.servicio{ 
+  /*Padre*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.servicio .iconos {
+  /*Hijo*/
+  height: 15rem;
+  width: 15rem;
+  background-color: var(--grisClaro);
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+/*Formularios Contacto*/
+.formulario {
+  background-color: var(--grisClaro);
+  /*Asigna el ancho al formulario del numero más pequeño entre 60rem y el 100%*/
+  width: min(60rem, 100%);
+  margin: 0 auto; /*Centrar Horizontalmente*/
+  padding: 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 2px 10px 45px -1px rgba(0,0,0,0.52);
+-moz-box-shadow: 2px 10px 45px -1px rgba(0,0,0,0.52);
+box-shadow: 2px 10px 45px -1px rgba(0,0,0,0.52);
+}
+
+
+/*Inputs CSS*/
+/*Media Querie Contenedor Campos Formulario*/
+@media (min-width: 768px) {
+  .contenedor-campos {
+    display: grid; /*Distribucion de Layouts*/
+    grid-template-columns: repeat(2, 1fr); /*2 columnas iguales 50% y 50%*/
+    grid-template-rows: auto auto 20rem;
+    column-gap: 1rem;
+  }
+  /*Utilizo pseudoselector nth-child, para evitar una clase extra*/
+  .campo:nth-child(3),
+  .campo:nth-child(4) {
+    /*Posicionar un elemento utilizo..*/
+    grid-column: 1 / 3;
+  }
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.input-text {
+  width: 100%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: .5rem;
+}
+
+
+/*Footer*/
+.footer {
+  text-align: center;
+}
+
+/* ========== Selector de Clase Especifico ========== */
+.titulo span {
+  font-size: 2rem;
+}
+
+.navegacion-principal a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+
+.servicio p {
+  line-height: 2;
+  text-align: center;
+}
+
+.servicio h3 {
+  color: #474158;
+  font-weight: normal;
+}
+
+.formulario fieldset {
+  border: none;
+}
+
+.formulario legend {
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: var(--primario);
+}
+
+.campo label {
+  color: var(--negro);
+  font-weight: bold;
+  margin-bottom: .5rem;
+  display: block;
+}
+
+.campo textarea {
+  height: 20rem;
+}
+
+/* ========== PseudoClase en Selectores ========== */
+.navegacion-principal a:hover {
+  background-color: var(--gris);
+  color: var(--negro);
+}
+
+.boton:hover {
+  cursor: pointer;
+  background-color: var(--gris);
+  color: var(--negro);
+}
+
+
+
+/*=====FIN DEL PROYECTO=========*/
+
+/* ========== Ejemplos: Media Queries ========== */
+/*Celular*/
+@media (min-width: 480px) {
+  body{
+  }
+}
+
+/*Tablet*/
+@media (min-width: 768px) {
+  body{
+  }
+}
+
+/*Notebook o Pc Escritorio*/
+@media (min-width: 1140px) {
+  body{
+  }
+}
+
+/*Mayor Tamaño*/
+@media (min-width: 1400px) {
+  body{
+  }
+}
+
